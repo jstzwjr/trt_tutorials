@@ -52,7 +52,7 @@ def torch_dtype_from_trt(dtype):
     elif dtype == trt.float32:
         return torch.float32
     else:
-        raise TypeError("%s is not supported by torch" % dtype)
+        raise TypeError("%s is not supported by torch_test" % dtype)
 
 def np_dtype_from_trt(dtype):
     if dtype == trt.int8:
@@ -74,7 +74,7 @@ def torch_device_from_trt(device):
     elif device == trt.TensorLocation.HOST:
         return torch.device("cpu")
     else:
-        return TypeError("%s is not supported by torch" % device)
+        return TypeError("%s is not supported by torch_test" % device)
 
 
 class Engine:

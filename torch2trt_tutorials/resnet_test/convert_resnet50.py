@@ -21,9 +21,11 @@ torch_model = resnet50(True).cuda().eval()
 
 # convert to TensorRT feeding sample data as input
 # model_trt = torch2trt.torch2trt(torch_model, [fake_input], max_batch_size=1, fp16_mode=True)
-# torch.save(model_trt.state_dict(), "resnet50.engine")
+# torch_test.save(model_trt.state_dict(), "resnet50.engine")
 model_trt = torch2trt.TRTModule()
 model_trt.load_state_dict(torch.load("resnet50.engine"))
+engine = model_trt.engine
+
 
 # torch_model = torch_model.half()
 # warm up
